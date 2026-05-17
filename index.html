@@ -78,7 +78,7 @@
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#technology" class="nav-link">Technology</a>
                 <a href="#roadmap" class="nav-link">Roadmap</a>
-                <a href="https://github.com/civitechglobal/trust-maven" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="nav-link">GitHub</a>
                 <a href="#cta" class="btn btn-primary">View Demo</a>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -97,28 +97,61 @@
         <div class="container hero-container">
             <!-- Left Column -->
             <div class="hero-left">
-                <h1 class="hero-title">Enterprise GRC Platform That Thinks Like You Do</h1>
-                <p class="hero-subtitle">Unified risk management, compliance intelligence, and continuous monitoring for modern enterprises</p>
+                <div class="hero-badge">
+                    <span class="material-symbols-outlined">stars</span>
+                    Enterprise GRC Platform
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Cross-Framework Intelligence</span>
+                    <br>for Modern Compliance
+                </h1>
+                <p class="hero-subtitle">See how your ISO 27001 work covers 62% of SOC 2. Unified risk management, compliance intelligence, and continuous monitoring in one platform.</p>
+
+                <!-- Key Metrics -->
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value">25+</div>
+                        <div class="metric-label">GRC Features</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Pre-Built Frameworks</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">200+</div>
+                        <div class="metric-label">Control Mappings</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">62%</div>
+                        <div class="metric-label">Cross-Compliance</div>
+                    </div>
+                </div>
 
                 <div class="hero-cta">
-                    <a href="#demo" class="btn btn-primary btn-large">View Live Demo</a>
-                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                    <a href="#features" class="btn btn-primary btn-large">
+                        Explore Features
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="btn btn-secondary btn-large">
+                        <span class="material-symbols-outlined">code</span>
+                        View on GitHub
+                    </a>
                 </div>
 
                 <div class="social-proof">
                     <span class="proof-item">
                         <span class="material-symbols-outlined">verified</span>
-                        Trusted by 50+ Organizations
+                        Production Ready
                     </span>
                     <span class="proof-divider">·</span>
                     <span class="proof-item">
                         <span class="material-symbols-outlined">security</span>
-                        SOC 2 Ready
+                        SOC 2 / ISO 27001 Ready
                     </span>
                     <span class="proof-divider">·</span>
                     <span class="proof-item">
-                        <span class="material-symbols-outlined">gavel</span>
-                        GDPR Compliant
+                        <span class="material-symbols-outlined">code</span>
+                        Open Source
                     </span>
                 </div>
             </div>
@@ -126,10 +159,26 @@
             <!-- Right Column - Screenshot Showcase -->
             <div class="hero-right">
                 <div class="screenshot-showcase">
-                    <img src="assets/images/screenshots/00-Dashboard - light.png" alt="TrustMaven Dashboard" class="screenshot-main">
-                    <img src="assets/images/screenshots/01-Risk registry.png" alt="Risk Registry" class="screenshot-float screenshot-float-1">
-                    <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub" class="screenshot-float screenshot-float-2">
-                    <img src="assets/images/screenshots/04-KRIs.png" alt="KRI Dashboard" class="screenshot-float screenshot-float-3">
+                    <img src="assets/images/screenshots/00-Dashboard - light.png" alt="TrustMaven Dashboard" class="screenshot-main" loading="eager">
+                    <img src="assets/images/screenshots/01-Risk registry.png" alt="Risk Registry" class="screenshot-float screenshot-float-1" loading="eager">
+                    <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub" class="screenshot-float screenshot-float-2" loading="eager">
+                    <img src="assets/images/screenshots/04-KRIs.png" alt="KRI Dashboard" class="screenshot-float screenshot-float-3" loading="eager">
+                </div>
+
+                <!-- Stats Overlay -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">25+</span>
+                        <span class="stat-label">Features</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">6</span>
+                        <span class="stat-label">Frameworks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">200+</span>
+                        <span class="stat-label">Mappings</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,7 +187,11 @@
     <!-- 2. Problem Statement Section -->
     <section class="problem-section" id="problem">
         <div class="container">
-            <h2 class="section-title">GRC Platforms Shouldn't Feel Like Spreadsheets</h2>
+            <div class="section-header">
+                <span class="section-badge">The Challenge</span>
+                <h2 class="section-title">Traditional GRC Platforms Fall Short</h2>
+                <p class="section-subtitle">Most GRC tools force you to manage compliance in silos. Each framework feels like a separate universe.</p>
+            </div>
 
             <div class="pain-points-grid">
                 <div class="pain-point" data-aos="fade-up" data-aos-delay="0">
@@ -146,23 +199,35 @@
                         <span class="material-symbols-outlined">scatter_plot</span>
                     </div>
                     <h3>Fragmented Tools</h3>
-                    <p>Managing 5+ tools for risk, compliance, and audits</p>
+                    <p>Managing 5+ disconnected tools for risk, compliance, and audits wastes time and creates data silos</p>
+                    <div class="pain-stat">Average: $50k+/year</div>
                 </div>
 
                 <div class="pain-point" data-aos="fade-up" data-aos-delay="100">
                     <div class="pain-icon">
                         <span class="material-symbols-outlined">query_stats</span>
                     </div>
-                    <h3>Manual Compliance</h3>
-                    <p>Spending weeks mapping controls across frameworks</p>
+                    <h3>Manual Mapping</h3>
+                    <p>Spending weeks manually mapping controls between ISO 27001, SOC 2, NIST CSF, and GDPR</p>
+                    <div class="pain-stat">200+ hours wasted</div>
                 </div>
 
                 <div class="pain-point" data-aos="fade-up" data-aos-delay="200">
                     <div class="pain-icon">
                         <span class="material-symbols-outlined">psychology_alt</span>
                     </div>
-                    <h3>No Intelligence</h3>
-                    <p>Reactive risk management without predictive insights</p>
+                    <h3>Zero Intelligence</h3>
+                    <p>Reactive risk management without cross-framework insights or predictive gap analysis</p>
+                    <div class="pain-stat">Missed opportunities</div>
+                </div>
+            </div>
+
+            <!-- Call-out Box -->
+            <div class="callout-box">
+                <span class="material-symbols-outlined">lightbulb</span>
+                <div>
+                    <strong>What if one framework could unlock another?</strong>
+                    <p>Your ISO 27001 controls already satisfy 62% of SOC 2 requirements. You just don't know it yet.</p>
                 </div>
             </div>
         </div>
@@ -172,23 +237,59 @@
     <section class="solution-section" id="solution">
         <div class="solution-background"></div>
         <div class="container">
-            <h2 class="section-title">One Platform. Complete Governance.</h2>
+            <div class="section-header">
+                <span class="section-badge" style="border-color: rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.9);">The Solution</span>
+                <h2 class="section-title"><span class="gradient-text">Governance OS</span> — Cross-Framework Intelligence</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">The industry's first unified compliance intelligence layer. See how frameworks overlap, identify coverage gaps instantly, and eliminate redundant work.</p>
+            </div>
+
+            <!-- Solution Stats -->
+            <div class="solution-stats">
+                <div class="solution-stat">
+                    <div class="stat-icon"><span class="material-symbols-outlined">analytics</span></div>
+                    <div class="stat-info">
+                        <div class="stat-number">62%</div>
+                        <div class="stat-text">ISO 27001 → SOC 2 Coverage</div>
+                    </div>
+                </div>
+                <div class="solution-stat">
+                    <div class="stat-icon"><span class="material-symbols-outlined">link</span></div>
+                    <div class="stat-info">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-text">Bidirectional Mappings</div>
+                    </div>
+                </div>
+                <div class="solution-stat">
+                    <div class="stat-icon"><span class="material-symbols-outlined">speed</span></div>
+                    <div class="stat-info">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-text">Time Savings</div>
+                    </div>
+                </div>
+                <div class="solution-stat">
+                    <div class="stat-icon"><span class="material-symbols-outlined">verified</span></div>
+                    <div class="stat-info">
+                        <div class="stat-number">6</div>
+                        <div class="stat-text">Built-In Frameworks</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="solution-screenshot">
-                <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub Full View" class="screenshot-full">
+                <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub Full View" class="screenshot-full" loading="eager">
 
                 <!-- Annotations -->
                 <div class="annotation annotation-1">
                     <div class="annotation-badge">46% Compliance Score</div>
-                    <p>Real-time calculation</p>
+                    <p>Real-time calculation across all frameworks</p>
                 </div>
                 <div class="annotation annotation-2">
-                    <div class="annotation-badge">3 Adopted Regulations</div>
-                    <p>ISO 27001, NIST CSF, GDPR</p>
+                    <div class="annotation-badge">3 Active Frameworks</div>
+                    <p>ISO 27001 • NIST CSF 2.0 • GDPR</p>
                 </div>
                 <div class="annotation annotation-3">
-                    <div class="annotation-badge">Top Gaps Identified</div>
-                    <p>Smart prioritization</p>
+                    <div class="annotation-badge">Smart Gap Analysis</div>
+                    <p>Prioritized recommendations</p>
                 </div>
             </div>
         </div>
@@ -584,7 +685,7 @@
                     <span class="material-symbols-outlined cta-icon">code</span>
                     <h3>View GitHub</h3>
                     <p>Open source, community-driven</p>
-                    <a href="https://github.com/civitechglobal/trust-maven" target="_blank" class="btn btn-secondary">Explore Code</a>
+                    <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="btn btn-secondary">Explore Code</a>
                 </div>
             </div>
         </div>
@@ -626,7 +727,7 @@
                 <div class="footer-column">
                     <h4>Connect</h4>
                     <ul>
-                        <li><a href="https://github.com/civitechglobal/trust-maven" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven" target="_blank">GitHub</a></li>
                         <li><a href="#twitter">Twitter</a></li>
                         <li><a href="#linkedin">LinkedIn</a></li>
                         <li><a href="mailto:contact@trustmaven.io">Email</a></li>

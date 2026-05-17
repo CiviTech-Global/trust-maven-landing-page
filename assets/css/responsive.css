@@ -71,10 +71,46 @@
         display: none; /* Hide floating screenshots on mobile */
     }
 
+    /* Hero Metrics */
+    .hero-metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+
+    .metric-value {
+        font-size: 1.5rem;
+    }
+
+    .metric-label {
+        font-size: 0.7rem;
+    }
+
     /* Problem Section */
     .pain-points-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
+    }
+
+    .callout-box {
+        flex-direction: column;
+        padding: var(--spacing-lg);
+    }
+
+    .callout-box .material-symbols-outlined {
+        font-size: 2rem;
+    }
+
+    /* Solution Stats */
+    .solution-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .solution-stat {
+        flex-direction: column;
+        text-align: center;
     }
 
     /* Feature Blocks */
@@ -206,6 +242,26 @@
         height: 300px;
     }
 
+    /* Hero */
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .hero-metrics {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .metric-value {
+        font-size: 1.25rem;
+    }
+
+    .metric-label {
+        font-size: 0.65rem;
+    }
+
     /* Pain Points */
     .pain-icon {
         width: 60px;
@@ -214,6 +270,16 @@
 
     .pain-icon .material-symbols-outlined {
         font-size: 2rem;
+    }
+
+    /* Solution Stats */
+    .solution-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .solution-stat .stat-number {
+        font-size: 1.5rem;
     }
 
     /* Feature Content */
