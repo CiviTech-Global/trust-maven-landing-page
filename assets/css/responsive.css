@@ -1,0 +1,494 @@
+/* ========================================
+   Responsive Styles - Mobile First
+   ======================================== */
+
+/* Tablet - 768px and below */
+@media (max-width: 768px) {
+    /* Typography Adjustments */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Navigation */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        padding: var(--spacing-md);
+        border-top: 1px solid var(--border-light);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    /* Hero Section */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .screenshot-showcase {
+        height: 400px;
+    }
+
+    .screenshot-float {
+        display: none; /* Hide floating screenshots on mobile */
+    }
+
+    /* Problem Section */
+    .pain-points-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    /* Feature Blocks */
+    .feature-block.layout-right,
+    .feature-block.layout-left {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .feature-block.layout-left .feature-image {
+        order: 1;
+    }
+
+    .feature-block.layout-left .feature-content {
+        order: 2;
+    }
+
+    .governance-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Tech Grid */
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+        font-size: 0.875rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-sm);
+    }
+
+    /* Timeline */
+    .timeline::before {
+        left: 15px;
+    }
+
+    .timeline-marker {
+        width: 40px;
+        height: 40px;
+    }
+
+    .timeline-marker .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+
+    .timeline-item {
+        gap: var(--spacing-md);
+    }
+
+    /* CTA Grid */
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    /* Spacing Adjustments */
+    section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Annotations */
+    .annotation-1,
+    .annotation-2,
+    .annotation-3 {
+        position: static;
+        margin: var(--spacing-md) 0;
+        opacity: 1;
+    }
+}
+
+/* Mobile - 640px and below */
+@media (max-width: 640px) {
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: var(--spacing-2xl);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .social-proof {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .proof-divider {
+        display: none;
+    }
+
+    .screenshot-showcase {
+        height: 300px;
+    }
+
+    /* Pain Points */
+    .pain-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pain-icon .material-symbols-outlined {
+        font-size: 2rem;
+    }
+
+    /* Feature Content */
+    .feature-title {
+        font-size: 1.5rem;
+    }
+
+    .feature-description {
+        font-size: 1rem;
+    }
+
+    .governance-os {
+        padding: var(--spacing-lg);
+    }
+
+    .stat-number,
+    .stat-icon {
+        font-size: 2rem;
+    }
+
+    /* Comparison Table */
+    .comparison-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .comparison-table {
+        min-width: 600px;
+        font-size: 0.8125rem;
+    }
+
+    /* Timeline */
+    .timeline-content {
+        padding: var(--spacing-md);
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Buttons */
+    .btn-large {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    /* Spacing */
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* Small Mobile - 375px and below */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .navbar .container {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+
+    .governance-os {
+        padding: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Desktop - 1024px and above */
+@media (min-width: 1024px) {
+    /* Feature Block Hover Effects */
+    .feature-image {
+        overflow: hidden;
+        border-radius: var(--radius-md);
+    }
+
+    .feature-image img {
+        transition: transform var(--transition-slow);
+    }
+
+    .feature-block:hover .feature-image img {
+        transform: scale(1.05);
+    }
+
+    /* Enhanced Hover States */
+    .tech-card:hover {
+        box-shadow: 0 10px 30px rgba(67, 56, 202, 0.2);
+    }
+
+    .cta-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Large Desktop - 1280px and above */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .feature-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* Extra Large Desktop - 1536px and above */
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    section {
+        padding: var(--spacing-3xl) 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .mobile-menu-toggle,
+    .hero-cta,
+    .cta-section,
+    .footer {
+        display: none;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    .feature-block,
+    .tech-card,
+    .timeline-item {
+        page-break-inside: avoid;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* Dark Mode Support (optional) */
+@media (prefers-color-scheme: dark) {
+    /* Uncomment to enable automatic dark mode
+    :root {
+        --bg-light: var(--bg-dark);
+        --surface-light: var(--surface-dark);
+        --text-primary: var(--text-on-dark);
+        --text-secondary: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar {
+        background-color: rgba(15, 23, 42, 0.95);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-image img,
+    .screenshot-full,
+    .screenshot-main {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    */
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid currentColor;
+    }
+
+    .feature-image img,
+    .screenshot-full {
+        border: 2px solid var(--text-primary);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .gradient-mesh,
+    .screenshot-float,
+    .cta-background {
+        animation: none !important;
+    }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+    }
+
+    .screenshot-showcase {
+        height: 250px;
+    }
+}
+
+/* Hover Support Detection */
+@media (hover: hover) and (pointer: fine) {
+    /* Enhanced hover effects for devices with precise pointers */
+    .nav-link:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .tech-card:hover,
+    .stat-card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets for mobile */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-link {
+        padding: var(--spacing-sm);
+    }
+
+    .mobile-menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Disable hover effects that don't work well on touch */
+    .feature-block:hover .feature-image img {
+        transform: none;
+    }
+}

@@ -1,0 +1,386 @@
+/* ========================================
+   Animation Styles
+   ======================================== */
+
+/* Performance Optimizations */
+.hero-left,
+.hero-right,
+.hero-cta,
+.screenshot-float,
+.feature-block,
+.tech-card,
+.cta-card {
+    will-change: transform, opacity;
+}
+
+/* Keyframe Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Gradient Mesh Animation */
+.gradient-mesh {
+    background: linear-gradient(
+        135deg,
+        rgba(67, 56, 202, 0.1) 0%,
+        rgba(124, 58, 237, 0.05) 25%,
+        rgba(2, 132, 199, 0.1) 50%,
+        rgba(124, 58, 237, 0.05) 75%,
+        rgba(67, 56, 202, 0.1) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Screenshot Float Animation */
+.screenshot-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.screenshot-float-1 {
+    animation-delay: 0s;
+}
+
+.screenshot-float-2 {
+    animation-delay: 2s;
+}
+
+.screenshot-float-3 {
+    animation-delay: 4s;
+}
+
+/* Hover Effects */
+.screenshot-showcase img:hover {
+    transform: scale(1.02);
+    transition: transform var(--transition-slow);
+}
+
+.tech-card:hover .tech-icon {
+    transform: rotate(360deg) scale(1.1);
+    transition: transform 0.6s ease;
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Scroll-based fade animations (fallback for AOS) */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-in-left {
+    opacity: 0;
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+    opacity: 0;
+    animation: slideInRight 0.8s ease forwards;
+}
+
+/* CTA Section Animated Background */
+.cta-background {
+    animation: gradientShift 20s ease infinite;
+}
+
+/* Navbar Scroll Effect */
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Loading States */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(
+        to right,
+        var(--bg-light) 4%,
+        var(--border-light) 25%,
+        var(--bg-light) 36%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Transition for smooth color changes */
+* {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Prevent transitions on page load */
+.preload * {
+    transition: none !important;
+}
+
+/* Feature Image Reveal Animation (for ScrollTrigger) */
+.feature-image img {
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Comparison Table Row Animation */
+.comparison-table tbody tr {
+    transition: background-color var(--transition-base);
+}
+
+.comparison-table tbody tr:hover {
+    background-color: rgba(67, 56, 202, 0.05);
+}
+
+/* Timeline Animation */
+.timeline-item {
+    opacity: 1;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Annotation Pulse Effect */
+@keyframes annotationPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.annotation-badge {
+    animation: annotationPulse 2s ease-in-out infinite;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Parallax Effect */
+.parallax {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Glow Effect on Hover */
+.btn-primary:hover,
+.cta-card:hover {
+    box-shadow: 0 0 30px rgba(67, 56, 202, 0.4);
+}
+
+/* Material Icons Animation */
+.material-symbols-outlined {
+    transition: all var(--transition-base);
+}
+
+/* Feature Stats Icon Hover */
+.feature-stats li:hover .material-symbols-outlined {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--primary-light);
+}
+
+/* Social Proof Icons */
+.proof-item .material-symbols-outlined {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* CTA Card Lift Effect */
+.cta-card {
+    position: relative;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.cta-card:hover::before {
+    opacity: 1;
+}
+
+/* Timeline Marker Glow */
+.timeline-marker {
+    box-shadow: 0 0 20px rgba(67, 56, 202, 0.4);
+}
+
+/* Image Lazy Load Fade In */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Stat Card Animation on Hover */
+.stat-card {
+    transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+/* Navigation Link Underline Effect */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Feature Badge Shine Effect */
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.feature-badge {
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+/* Comparison Badge Pulse */
+.comparison-badge {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Footer Link Slide Effect */
+.footer-column a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-column a::before {
+    content: '→ ';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--transition-fast);
+    display: inline-block;
+}
+
+.footer-column a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
