@@ -3,14 +3,8 @@
    ======================================== */
 
 /* Performance Optimizations */
-.hero-left,
-.hero-right,
-.hero-cta,
-.screenshot-float,
-.feature-block,
-.tech-card,
-.cta-card {
-    will-change: transform, opacity;
+.screenshot-float {
+    will-change: transform;
 }
 
 /* Keyframe Animations */
@@ -196,9 +190,9 @@
     transition: none !important;
 }
 
-/* Feature Image Reveal Animation (for ScrollTrigger) */
+/* Feature Image Hover */
 .feature-image img {
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition: transform 0.6s ease;
 }
 
 /* Comparison Table Row Animation */
@@ -301,17 +295,8 @@ html {
     box-shadow: 0 0 20px rgba(67, 56, 202, 0.4);
 }
 
-/* Image Lazy Load Fade In */
+/* Images always visible */
 img {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"] {
-    opacity: 0;
-}
-
-img[loading="lazy"].loaded {
     opacity: 1;
 }
 

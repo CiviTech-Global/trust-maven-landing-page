@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustMaven - Enterprise GRC Platform Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+    <style>
+        /* ====== RESET & BASE ====== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink: #0F172A;
+            --ink-soft: #334155;
+            --ink-muted: #64748B;
+            --primary: #4338CA;
+            --primary-light: #6366F1;
+            --accent: #7C3AED;
+            --surface: #FFFFFF;
+            --surface-alt: #F8FAFC;
+            --border: #E2E8F0;
+            --success: #059669;
+            --danger: #E11D48;
+            --warning: #D97706;
+        }
+
+        html { font-size: 11px; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--surface);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ====== PAGE STRUCTURE ====== */
+        /* Each .page is sized for A4 landscape for max visual impact */
+        .page {
+            width: 297mm;
+            min-height: 210mm;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: var(--surface);
+        }
+
+        .page:last-child { page-break-after: avoid; }
+
+        /* ====== PAGE 1: COVER ====== */
+        .cover {
+            background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 70%, #4338CA 100%);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 210mm;
+        }
+
+        .cover-left {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cover-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .cover-logo-mark {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .cover-logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .cover-tagline {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
+        }
+
+        .cover-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .cover-title .highlight {
+            background: linear-gradient(90deg, #818CF8, #A78BFA, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-subtitle {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.7);
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+
+        .cover-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .cover-stat {
+            text-align: left;
+        }
+
+        .cover-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(90deg, #818CF8, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        .cover-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .cover-screenshot {
+            width: 90%;
+            border-radius: 12px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cover-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .cover-dots {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            z-index: 0;
+        }
+
+        /* ====== PAGE 2: PROBLEM + SOLUTION ====== */
+        .split-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 210mm;
+        }
+
+        .split-dark {
+            background: var(--ink);
+            color: white;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-light {
+            background: var(--surface);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+        }
+
+        .split-label.red { color: var(--danger); }
+        .split-label.green { color: var(--success); }
+
+        .split-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        .problem-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .problem-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .problem-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .problem-icon.red { background: rgba(225,29,72,0.15); color: var(--danger); }
+        .problem-icon.green { background: rgba(5,150,105,0.15); color: var(--success); }
+
+        .problem-text h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .problem-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.4;
+        }
+
+        .split-light .problem-text p {
+            color: var(--ink-muted);
+        }
+
+        .solution-metric {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(5,150,105,0.1);
+            border: 1px solid rgba(5,150,105,0.2);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--success);
+            margin-top: 4px;
+        }
+
+        /* ====== PAGE 3: FEATURES GRID ====== */
+        .features-page {
+            padding: 48px;
+            min-height: 210mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .features-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .features-header h2 .highlight {
+            color: var(--primary);
+        }
+
+        .features-header p {
+            font-size: 1.3rem;
+            color: var(--ink-muted);
+            margin-top: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+            flex: 1;
+        }
+
+        .feature-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.7;
+        }
+
+        .feature-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .fc-indigo { background: rgba(67,56,202,0.1); color: var(--primary); }
+        .fc-violet { background: rgba(124,58,237,0.1); color: var(--accent); }
+        .fc-emerald { background: rgba(5,150,105,0.1); color: var(--success); }
+        .fc-amber { background: rgba(217,119,6,0.1); color: var(--warning); }
+        .fc-rose { background: rgba(225,29,72,0.1); color: var(--danger); }
+        .fc-sky { background: rgba(2,132,199,0.1); color: #0284C7; }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .feature-card .tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(67,56,202,0.08);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        /* ====== PAGE 4: SCREENSHOTS SHOWCASE ====== */
+        .showcase-page {
+            padding: 48px;
+            min-height: 210mm;
+            background: var(--surface-alt);
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .showcase-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .showcase-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-item-label {
+            padding: 10px 16px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .showcase-item-label .material-symbols-outlined {
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        /* ====== PAGE 5: GOVERNANCE OS (Flagship) ====== */
+        .flagship-page {
+            min-height: 210mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #0F172A, #1E1B4B);
+            color: white;
+        }
+
+        .flagship-left {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flagship-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(99,102,241,0.2);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #A5B4FC;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            align-self: flex-start;
+        }
+
+        .flagship-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .flagship-title .highlight {
+            background: linear-gradient(90deg, #818CF8, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .flagship-desc {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.5;
+            margin-bottom: 36px;
+        }
+
+        .flagship-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .flagship-metric {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .flagship-metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #818CF8, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .flagship-metric-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 2px;
+        }
+
+        .flagship-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            position: relative;
+        }
+
+        .flagship-screenshot {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .flagship-frameworks {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .fw-pill {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ====== PAGE 6: TECH + COMPARISON ====== */
+        .tech-compare-page {
+            min-height: 210mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .tech-side {
+            padding: 48px;
+            background: var(--ink);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tech-side h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .tech-item {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tech-item-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tech-item-icon .material-symbols-outlined {
+            font-size: 18px;
+            color: white;
+        }
+
+        .tech-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .tech-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.3;
+        }
+
+        .compare-side {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .compare-side h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.05rem;
+        }
+
+        .compare-table th {
+            text-align: left;
+            padding: 10px 14px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-muted);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .compare-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-table tr:last-child td { border-bottom: none; }
+
+        .compare-table td:first-child { font-weight: 600; }
+
+        .check { color: var(--success); font-weight: 600; }
+        .cross { color: var(--ink-muted); }
+        .partial { color: var(--warning); font-weight: 500; }
+
+        .check .material-symbols-outlined,
+        .cross .material-symbols-outlined,
+        .partial .material-symbols-outlined {
+            font-size: 16px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* ====== PAGE 7: ROADMAP + CTA ====== */
+        .closing-page {
+            min-height: 210mm;
+            display: grid;
+            grid-template-rows: 1fr auto;
+        }
+
+        .roadmap-section {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .roadmap-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .roadmap-lanes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .lane {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .lane-header {
+            padding: 14px 20px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lane-header.done { background: rgba(5,150,105,0.1); color: var(--success); }
+        .lane-header.current { background: rgba(67,56,202,0.1); color: var(--primary); }
+        .lane-header.future { background: rgba(124,58,237,0.1); color: var(--accent); }
+
+        .lane-body {
+            padding: 16px 20px;
+        }
+
+        .lane-body ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .lane-body li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+        }
+
+        .lane-body li .material-symbols-outlined {
+            font-size: 14px;
+        }
+
+        .lane-body li.done-item .material-symbols-outlined { color: var(--success); }
+        .lane-body li.active-item .material-symbols-outlined { color: var(--primary); }
+        .lane-body li.future-item .material-symbols-outlined { color: var(--ink-muted); }
+
+        .closing-cta {
+            background: linear-gradient(135deg, #312E81, #4338CA);
+            color: white;
+            padding: 40px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cta-left h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .cta-left p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .cta-right {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .cta-box-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .cta-box-sub {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .cta-box-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #A5B4FC;
+            text-decoration: none;
+        }
+
+        /* ====== SHARED ====== */
+        .page-number {
+            position: absolute;
+            bottom: 16px;
+            right: 24px;
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            font-weight: 500;
+        }
+
+        .page-number.light {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 16px;
+            left: 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .watermark.light { color: rgba(255,255,255,0.3); }
+        .watermark.dark { color: var(--ink-muted); }
+
+        /* ====== PRINT STYLES ====== */
+        @media print {
+            html { font-size: 10px; }
+            body { background: white; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+            .page:last-child { page-break-after: avoid; }
+        }
+
+        /* ====== SCREEN PREVIEW ====== */
+        @media screen {
+            body {
+                background: #1a1a2e;
+                padding: 40px 0;
+            }
+            .page {
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+    <div class="cover-dots"></div>
+    <div class="cover-left">
+        <div class="cover-logo">
+            <div class="cover-logo-mark">T</div>
+            <span class="cover-logo-text">TrustMaven</span>
+        </div>
+        <div class="cover-tagline">Enterprise GRC Platform</div>
+        <h1 class="cover-title">
+            <span class="highlight">Cross-Framework<br>Intelligence</span><br>
+            for Modern<br>Compliance
+        </h1>
+        <p class="cover-subtitle">The first GRC platform that shows how your ISO 27001 work covers 62% of SOC 2. Unified risk, compliance, and monitoring.</p>
+        <div class="cover-stats">
+            <div class="cover-stat">
+                <div class="cover-stat-value">25+</div>
+                <div class="cover-stat-label">GRC Features</div>
+            </div>
+            <div class="cover-stat">
+                <div class="cover-stat-value">6</div>
+                <div class="cover-stat-label">Frameworks</div>
+            </div>
+            <div class="cover-stat">
+                <div class="cover-stat-value">200+</div>
+                <div class="cover-stat-label">Cross-Mappings</div>
+            </div>
+        </div>
+    </div>
+    <div class="cover-right">
+        <div class="cover-glow"></div>
+        <img src="assets/images/screenshots/00-dashboard-light.png" alt="TrustMaven Dashboard" class="cover-screenshot">
+    </div>
+    <span class="page-number light">01 / 07</span>
+    <span class="watermark light">trustmaven.io</span>
+</div>
+
+<!-- ==================== PAGE 2: PROBLEM + SOLUTION ==================== -->
+<div class="page split-page">
+    <div class="split-dark">
+        <div class="split-label red">The Problem</div>
+        <h2 class="split-title">GRC Is Broken.<br>Here's Why.</h2>
+        <ul class="problem-list">
+            <li class="problem-item">
+                <div class="problem-icon red"><span class="material-symbols-outlined">scatter_plot</span></div>
+                <div class="problem-text">
+                    <h4>Fragmented Tools</h4>
+                    <p>5+ disconnected tools for risk, compliance, and audits. $50k+/year wasted on tool sprawl.</p>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon red"><span class="material-symbols-outlined">query_stats</span></div>
+                <div class="problem-text">
+                    <h4>Manual Mapping</h4>
+                    <p>200+ hours manually cross-referencing controls between ISO 27001, SOC 2, NIST, and GDPR.</p>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon red"><span class="material-symbols-outlined">psychology_alt</span></div>
+                <div class="problem-text">
+                    <h4>Zero Cross-Intelligence</h4>
+                    <p>No visibility into how one framework satisfies another. Redundant work across every audit cycle.</p>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon red"><span class="material-symbols-outlined">trending_down</span></div>
+                <div class="problem-text">
+                    <h4>Reactive, Not Proactive</h4>
+                    <p>Risk discovered at audit time, not in real-time. No predictive gap analysis or KRI monitoring.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="split-light">
+        <div class="split-label green">The TrustMaven Answer</div>
+        <h2 class="split-title" style="color: var(--ink);">One Platform.<br>Total Clarity.</h2>
+        <ul class="problem-list">
+            <li class="problem-item">
+                <div class="problem-icon green"><span class="material-symbols-outlined">hub</span></div>
+                <div class="problem-text">
+                    <h4 style="color: var(--ink);">Unified GRC Hub</h4>
+                    <p>Risk, compliance, controls, vendors, audits, KRIs, and reporting in a single platform.</p>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon green"><span class="material-symbols-outlined">link</span></div>
+                <div class="problem-text">
+                    <h4 style="color: var(--ink);">Auto Cross-Mapping</h4>
+                    <p>200+ bidirectional mappings between 6 frameworks. See overlap and gaps instantly.</p>
+                    <div class="solution-metric"><span class="material-symbols-outlined" style="font-size:16px">check_circle</span> 62% ISO→SOC2 coverage</div>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon green"><span class="material-symbols-outlined">monitoring</span></div>
+                <div class="problem-text">
+                    <h4 style="color: var(--ink);">Continuous Monitoring</h4>
+                    <p>Real-time control health, threshold-based KRI alerts, and automated review cycles.</p>
+                </div>
+            </li>
+            <li class="problem-item">
+                <div class="problem-icon green"><span class="material-symbols-outlined">lightbulb</span></div>
+                <div class="problem-text">
+                    <h4 style="color: var(--ink);">Smart Recommendations</h4>
+                    <p>Framework recommender suggests optimal regulation combinations based on your profile.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <span class="page-number" style="color: var(--ink-muted);">02 / 07</span>
+</div>
+
+<!-- ==================== PAGE 3: FEATURES ==================== -->
+<div class="page features-page">
+    <div class="features-header">
+        <h2>Everything You Need. <span class="highlight">Nothing You Don't.</span></h2>
+        <p>8 core modules working together as a Governance Operating System.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-card-icon fc-indigo"><span class="material-symbols-outlined">warning</span></div>
+            <h3>Risk Registry</h3>
+            <p>Hierarchical taxonomy, 5x5 scoring matrix, inherent/residual analysis, FAIR financial quantification.</p>
+            <span class="tag">5 Risk Domains</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-emerald"><span class="material-symbols-outlined">shield</span></div>
+            <h3>Control Library</h3>
+            <p>Preventive, detective & corrective controls with design + operating effectiveness tracking.</p>
+            <span class="tag">3 Control Types</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-violet"><span class="material-symbols-outlined">monitoring</span></div>
+            <h3>Continuous Monitoring</h3>
+            <p>Real-time control health, consecutive failure detection, automated testing schedules.</p>
+            <span class="tag">Live Alerts</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-amber"><span class="material-symbols-outlined">dashboard</span></div>
+            <h3>KRI Dashboard</h3>
+            <p>Green/amber/red thresholds with trend tracking. Financial, cyber, regulatory & operational KRIs.</p>
+            <span class="tag">4 Categories</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-sky"><span class="material-symbols-outlined">business</span></div>
+            <h3>Vendor Risk (TPRM)</h3>
+            <p>Full lifecycle: risk categorization, vendor assessments, ratings, contract & SLA tracking.</p>
+            <span class="tag">4 Risk Levels</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-rose"><span class="material-symbols-outlined">fact_check</span></div>
+            <h3>Audit Management</h3>
+            <p>Internal + external audits, finding severity tracking, remediation status, auditor portal.</p>
+            <span class="tag">End-to-End</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-emerald"><span class="material-symbols-outlined">table_chart</span></div>
+            <h3>Custom Reports</h3>
+            <p>No-code report builder. 7 entity types, custom columns, filters. CSV + JSON export.</p>
+            <span class="tag">Drag & Drop</span>
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon fc-indigo"><span class="material-symbols-outlined">folder_managed</span></div>
+            <h3>Project Tracker</h3>
+            <p>Risk-aware project management with compliance initiative tracking and risk association.</p>
+            <span class="tag">Risk-Linked</span>
+        </div>
+    </div>
+    <span class="page-number" style="color: var(--ink-muted);">03 / 07</span>
+    <span class="watermark dark">trustmaven.io</span>
+</div>
+
+<!-- ==================== PAGE 4: SCREENSHOTS ==================== -->
+<div class="page showcase-page">
+    <div class="showcase-header">
+        <h2>See It In Action</h2>
+    </div>
+    <div class="showcase-grid">
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/00-dashboard-light.png" alt="Dashboard">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">space_dashboard</span>
+                Executive Dashboard
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/01-risk-registry.png" alt="Risk Registry">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">warning</span>
+                Risk Registry
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/03-controls.png" alt="Controls">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">shield</span>
+                Control Library
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/04-kris.png" alt="KRIs">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">monitoring</span>
+                KRI Dashboard
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/05-vendors.png" alt="Vendors">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">business</span>
+                Vendor Risk
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="assets/images/screenshots/10-reports.png" alt="Reports">
+            <div class="showcase-item-label">
+                <span class="material-symbols-outlined">table_chart</span>
+                Custom Reports
+            </div>
+        </div>
+    </div>
+    <span class="page-number" style="color: var(--ink-muted);">04 / 07</span>
+    <span class="watermark dark">trustmaven.io</span>
+</div>
+
+<!-- ==================== PAGE 5: GOVERNANCE OS ==================== -->
+<div class="page flagship-page">
+    <div class="flagship-left">
+        <div class="flagship-badge"><span class="material-symbols-outlined" style="font-size:14px">stars</span> Unique Differentiator</div>
+        <h2 class="flagship-title">
+            <span class="highlight">Governance OS</span><br>
+            Cross-Framework<br>Intelligence
+        </h2>
+        <p class="flagship-desc">The industry's first unified regulatory intelligence layer. See how frameworks overlap, identify coverage gaps instantly, and eliminate redundant compliance work across your organization.</p>
+        <div class="flagship-metrics">
+            <div class="flagship-metric">
+                <div class="flagship-metric-value">6</div>
+                <div class="flagship-metric-label">Built-In Frameworks</div>
+            </div>
+            <div class="flagship-metric">
+                <div class="flagship-metric-value">200+</div>
+                <div class="flagship-metric-label">Bidirectional Mappings</div>
+            </div>
+            <div class="flagship-metric">
+                <div class="flagship-metric-value">62%</div>
+                <div class="flagship-metric-label">ISO→SOC2 Coverage</div>
+            </div>
+        </div>
+    </div>
+    <div class="flagship-right">
+        <img src="assets/images/screenshots/08-compliance-hub.png" alt="Governance OS" class="flagship-screenshot">
+        <div class="flagship-frameworks">
+            <span class="fw-pill">ISO 27001</span>
+            <span class="fw-pill">NIST CSF 2.0</span>
+            <span class="fw-pill">SOC 2</span>
+            <span class="fw-pill">GDPR</span>
+            <span class="fw-pill">ISO 31000</span>
+            <span class="fw-pill">SOX/COSO</span>
+        </div>
+    </div>
+    <span class="page-number light">05 / 07</span>
+    <span class="watermark light">trustmaven.io</span>
+</div>
+
+<!-- ==================== PAGE 6: TECH + COMPARISON ==================== -->
+<div class="page tech-compare-page">
+    <div class="tech-side">
+        <h2>Built for<br>Enterprise</h2>
+        <div class="tech-stack">
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">storage</span></div>
+                <div>
+                    <h4>PERN Stack</h4>
+                    <p>PostgreSQL, Express 5, React 19, Node.js</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">enhanced_encryption</span></div>
+                <div>
+                    <h4>Security First</h4>
+                    <p>JWT, RBAC, Multi-Tenancy, Audit Logs</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">bolt</span></div>
+                <div>
+                    <h4>Real-Time</h4>
+                    <p>SSE Notifications, Change Tracking</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">code</span></div>
+                <div>
+                    <h4>Type-Safe</h4>
+                    <p>TypeScript, Sequelize ORM, Zod</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">architecture</span></div>
+                <div>
+                    <h4>Modern Infra</h4>
+                    <p>Winston Logging, Graceful Shutdown</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-item-icon"><span class="material-symbols-outlined">rocket_launch</span></div>
+                <div>
+                    <h4>Scalable</h4>
+                    <p>Tiered Rate Limiting, Custom Exceptions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="compare-side">
+        <h2>vs. The<br>Competition</h2>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Capability</th>
+                    <th>TrustMaven</th>
+                    <th>Others</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cross-Framework Mapping</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> Automated</td>
+                    <td class="cross"><span class="material-symbols-outlined">cancel</span> Manual</td>
+                </tr>
+                <tr>
+                    <td>Governance OS</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> Unified</td>
+                    <td class="cross"><span class="material-symbols-outlined">cancel</span> Siloed</td>
+                </tr>
+                <tr>
+                    <td>FAIR Quantification</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> Built-in</td>
+                    <td class="partial"><span class="material-symbols-outlined">warning</span> Enterprise tier</td>
+                </tr>
+                <tr>
+                    <td>Continuous Monitoring</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> Built-in</td>
+                    <td class="partial"><span class="material-symbols-outlined">warning</span> Add-on</td>
+                </tr>
+                <tr>
+                    <td>No-Code Reports</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> Full builder</td>
+                    <td class="partial"><span class="material-symbols-outlined">warning</span> Templates</td>
+                </tr>
+                <tr>
+                    <td>Modern Stack</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> React 19 / TS</td>
+                    <td class="cross"><span class="material-symbols-outlined">cancel</span> Legacy</td>
+                </tr>
+                <tr>
+                    <td>Open Source</td>
+                    <td class="check"><span class="material-symbols-outlined">check_circle</span> 100%</td>
+                    <td class="cross"><span class="material-symbols-outlined">cancel</span> Proprietary</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <span class="page-number" style="color: var(--ink-muted);">06 / 07</span>
+</div>
+
+<!-- ==================== PAGE 7: ROADMAP + CTA ==================== -->
+<div class="page closing-page">
+    <div class="roadmap-section">
+        <h2>Product Roadmap</h2>
+        <div class="roadmap-lanes">
+            <div class="lane">
+                <div class="lane-header done"><span class="material-symbols-outlined" style="font-size:18px">check_circle</span> Delivered</div>
+                <div class="lane-body">
+                    <ul>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Risk Registry + FAIR</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Control Library</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> KRI Dashboard</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Vendor Risk (TPRM)</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Audit Management</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Custom Reports</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Continuous Monitoring</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> Governance OS</li>
+                        <li class="done-item"><span class="material-symbols-outlined">check</span> 6 Framework Catalogs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lane">
+                <div class="lane-header current"><span class="material-symbols-outlined" style="font-size:18px">construction</span> In Progress</div>
+                <div class="lane-body">
+                    <ul>
+                        <li class="active-item"><span class="material-symbols-outlined">arrow_right</span> Issue Management</li>
+                        <li class="active-item"><span class="material-symbols-outlined">arrow_right</span> Executive Dashboards</li>
+                        <li class="active-item"><span class="material-symbols-outlined">arrow_right</span> Workflow Engine</li>
+                        <li class="active-item"><span class="material-symbols-outlined">arrow_right</span> Jira / Slack Integration</li>
+                        <li class="active-item"><span class="material-symbols-outlined">arrow_right</span> Evidence Vault</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lane">
+                <div class="lane-header future"><span class="material-symbols-outlined" style="font-size:18px">rocket_launch</span> Future</div>
+                <div class="lane-body">
+                    <ul>
+                        <li class="future-item"><span class="material-symbols-outlined">schedule</span> AI Risk Classification</li>
+                        <li class="future-item"><span class="material-symbols-outlined">schedule</span> Monte Carlo Simulations</li>
+                        <li class="future-item"><span class="material-symbols-outlined">schedule</span> BCM Module</li>
+                        <li class="future-item"><span class="material-symbols-outlined">schedule</span> ESG Risk</li>
+                        <li class="future-item"><span class="material-symbols-outlined">schedule</span> Policy Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="closing-cta">
+        <div class="cta-left">
+            <h2>Ready to Transform Your GRC?</h2>
+            <p>Open source. Production-ready. Enterprise-grade.</p>
+        </div>
+        <div class="cta-right">
+            <div class="cta-box">
+                <div class="cta-box-title">Try the Demo</div>
+                <div class="cta-box-sub">Full-featured sandbox</div>
+                <a href="#" class="cta-box-link">Launch Demo &rarr;</a>
+            </div>
+            <div class="cta-box">
+                <div class="cta-box-title">View on GitHub</div>
+                <div class="cta-box-sub">Star, fork, contribute</div>
+                <a href="https://github.com/CiviTech-Global/trust-maven" class="cta-box-link">github.com/trust-maven &rarr;</a>
+            </div>
+            <div class="cta-box">
+                <div class="cta-box-title">Contact Us</div>
+                <div class="cta-box-sub">Schedule a walkthrough</div>
+                <a href="mailto:contact@trustmaven.io" class="cta-box-link">contact@trustmaven.io &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <span class="page-number light">07 / 07</span>
+    <span class="watermark light">trustmaven.io</span>
+</div>
+
+</body>
+</html>

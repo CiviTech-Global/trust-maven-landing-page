@@ -65,20 +65,32 @@
         ]
     }
     </script>
+
+    <!-- Preload critical images for better LCP -->
+    <link rel="preload" as="image" type="image/png" href="assets/images/screenshots/00-dashboard-light.png">
+    <link rel="preload" as="image" type="image/png" href="assets/images/screenshots/08-compliance-hub.png">
 </head>
 <body>
     <!-- Navigation (fixed) -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img src="assets/images/logo.svg" alt="TrustMaven Logo" class="logo">
-                <span class="brand-name">TrustMaven</span>
+                <a href="#hero">
+                    <img src="assets/images/logo.svg" alt="TrustMaven Logo" class="logo">
+                    <span class="brand-name">TrustMaven</span>
+                </a>
             </div>
             <div class="nav-links">
+                <a href="#problem" class="nav-link">Challenges</a>
+                <a href="#solution" class="nav-link">Solution</a>
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#technology" class="nav-link">Technology</a>
+                <a href="#comparison" class="nav-link">Comparison</a>
                 <a href="#roadmap" class="nav-link">Roadmap</a>
-                <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="nav-link">
+                    <span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">code</span>
+                    GitHub
+                </a>
                 <a href="#cta" class="btn btn-primary">View Demo</a>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -86,6 +98,18 @@
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#problem" class="mobile-link">Challenges</a>
+        <a href="#solution" class="mobile-link">Solution</a>
+        <a href="#features" class="mobile-link">Features</a>
+        <a href="#technology" class="mobile-link">Technology</a>
+        <a href="#comparison" class="mobile-link">Comparison</a>
+        <a href="#roadmap" class="mobile-link">Roadmap</a>
+        <a href="https://github.com/CiviTech-Global/trust-maven" target="_blank" class="mobile-link">GitHub</a>
+        <a href="#cta" class="mobile-link btn-mobile">View Demo</a>
+    </div>
 
     <!-- 1. Hero Section -->
     <section class="hero" id="hero">
@@ -159,10 +183,27 @@
             <!-- Right Column - Screenshot Showcase -->
             <div class="hero-right">
                 <div class="screenshot-showcase">
-                    <img src="assets/images/screenshots/00-Dashboard - light.png" alt="TrustMaven Dashboard" class="screenshot-main" loading="eager">
-                    <img src="assets/images/screenshots/01-Risk registry.png" alt="Risk Registry" class="screenshot-float screenshot-float-1" loading="eager">
-                    <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub" class="screenshot-float screenshot-float-2" loading="eager">
-                    <img src="assets/images/screenshots/04-KRIs.png" alt="KRI Dashboard" class="screenshot-float screenshot-float-3" loading="eager">
+                    <img src="assets/images/screenshots/00-dashboard-light.png"
+                         alt="TrustMaven Dashboard"
+                         class="screenshot-main"
+                         loading="eager"
+                         decoding="async"
+                         fetchpriority="high">
+                    <img src="assets/images/screenshots/01-risk-registry.png"
+                         alt="Risk Registry"
+                         class="screenshot-float screenshot-float-1"
+                         loading="eager"
+                         decoding="async">
+                    <img src="assets/images/screenshots/08-compliance-hub.png"
+                         alt="Compliance Hub"
+                         class="screenshot-float screenshot-float-2"
+                         loading="eager"
+                         decoding="async">
+                    <img src="assets/images/screenshots/04-kris.png"
+                         alt="KRI Dashboard"
+                         class="screenshot-float screenshot-float-3"
+                         loading="eager"
+                         decoding="async">
                 </div>
 
                 <!-- Stats Overlay -->
@@ -194,7 +235,7 @@
             </div>
 
             <div class="pain-points-grid">
-                <div class="pain-point" data-aos="fade-up" data-aos-delay="0">
+                <div class="pain-point">
                     <div class="pain-icon">
                         <span class="material-symbols-outlined">scatter_plot</span>
                     </div>
@@ -203,7 +244,7 @@
                     <div class="pain-stat">Average: $50k+/year</div>
                 </div>
 
-                <div class="pain-point" data-aos="fade-up" data-aos-delay="100">
+                <div class="pain-point">
                     <div class="pain-icon">
                         <span class="material-symbols-outlined">query_stats</span>
                     </div>
@@ -212,7 +253,7 @@
                     <div class="pain-stat">200+ hours wasted</div>
                 </div>
 
-                <div class="pain-point" data-aos="fade-up" data-aos-delay="200">
+                <div class="pain-point">
                     <div class="pain-icon">
                         <span class="material-symbols-outlined">psychology_alt</span>
                     </div>
@@ -276,7 +317,11 @@
             </div>
 
             <div class="solution-screenshot">
-                <img src="assets/images/screenshots/08-Compliance hub.png" alt="Compliance Hub Full View" class="screenshot-full" loading="eager">
+                <img src="assets/images/screenshots/08-compliance-hub.png"
+                     alt="Compliance Hub Full View"
+                     class="screenshot-full"
+                     loading="eager"
+                     decoding="async">
 
                 <!-- Annotations -->
                 <div class="annotation annotation-1">
@@ -321,14 +366,20 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/01-Risk registry.png" alt="Risk Registry" loading="lazy">
+                    <img src="assets/images/screenshots/01-risk-registry.png"
+                         alt="Risk Registry"
+                         loading="lazy"
+                         decoding="async">
                 </div>
             </div>
 
             <!-- 4.2 Control Monitoring -->
             <div class="feature-block layout-left">
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/06-Monitoring.png" alt="Control Monitoring" loading="lazy">
+                    <img src="assets/images/screenshots/06-monitoring.png"
+                         alt="Control Monitoring"
+                         loading="lazy"
+                         decoding="async">
                 </div>
                 <div class="feature-content">
                     <h3 class="feature-title">Continuous Control Monitoring</h3>
@@ -375,7 +426,10 @@
                     </div>
                 </div>
                 <div class="feature-image-wide">
-                    <img src="assets/images/screenshots/08-Compliance hub.png" alt="Governance OS" loading="lazy">
+                    <img src="assets/images/screenshots/08-compliance-hub.png"
+                         alt="Governance OS"
+                         loading="lazy"
+                         decoding="async">
                 </div>
             </div>
 
@@ -400,14 +454,20 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/04-KRIs.png" alt="KRI Dashboard" loading="lazy">
+                    <img src="assets/images/screenshots/04-kris.png"
+                         alt="KRI Dashboard"
+                         loading="lazy"
+                         decoding="async">
                 </div>
             </div>
 
             <!-- 4.5 Vendor Risk (TPRM) -->
             <div class="feature-block layout-left">
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/05-Vendors.png" alt="Vendor Risk Management" loading="lazy">
+                    <img src="assets/images/screenshots/05-vendors.png"
+                         alt="Vendor Risk Management"
+                         loading="lazy"
+                         decoding="async">
                 </div>
                 <div class="feature-content">
                     <h3 class="feature-title">Third-Party Risk Management</h3>
@@ -450,14 +510,20 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/09-Audits.png" alt="Audit Management" loading="lazy">
+                    <img src="assets/images/screenshots/09-audits.png"
+                         alt="Audit Management"
+                         loading="lazy"
+                         decoding="async">
                 </div>
             </div>
 
             <!-- 4.7 Custom Reporting -->
             <div class="feature-block layout-left">
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/10-Reports.png" alt="Custom Reporting" loading="lazy">
+                    <img src="assets/images/screenshots/10-reports.png"
+                         alt="Custom Reporting"
+                         loading="lazy"
+                         decoding="async">
                 </div>
                 <div class="feature-content">
                     <h3 class="feature-title">Build Any Report, No Code Required</h3>
@@ -500,7 +566,10 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="assets/images/screenshots/02-Projects.png" alt="Project Management" loading="lazy">
+                    <img src="assets/images/screenshots/02-projects.png"
+                         alt="Project Management"
+                         loading="lazy"
+                         decoding="async">
                 </div>
             </div>
         </div>
@@ -512,7 +581,7 @@
             <h2 class="section-title">Built for Scale, Security, and Speed</h2>
 
             <div class="tech-grid">
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">storage</span>
                     </div>
@@ -520,7 +589,7 @@
                     <p>PostgreSQL, Express 5, React 19, Node.js</p>
                 </div>
 
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">enhanced_encryption</span>
                     </div>
@@ -528,7 +597,7 @@
                     <p>JWT, RBAC, Multi-Tenancy, Audit Logs</p>
                 </div>
 
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">bolt</span>
                     </div>
@@ -536,7 +605,7 @@
                     <p>SSE Notifications, Change Tracking, Live Updates</p>
                 </div>
 
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">architecture</span>
                     </div>
@@ -544,7 +613,7 @@
                     <p>Zod Validation, Winston Logging, Graceful Shutdown</p>
                 </div>
 
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">code</span>
                     </div>
@@ -552,7 +621,7 @@
                     <p>TypeScript, Sequelize ORM, TanStack Query</p>
                 </div>
 
-                <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <span class="material-symbols-outlined">rocket_launch</span>
                     </div>
@@ -580,40 +649,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Cross-Framework Mapping</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> Bidirectional, automated</td>
-                            <td class="cross"><span class="material-symbols-outlined">cancel</span> Manual or none</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> Bidirectional, automated</td>
+                            <td data-label="Others:" class="cross"><span class="material-symbols-outlined">cancel</span> Manual or none</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Governance OS</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> Unified intelligence layer</td>
-                            <td class="cross"><span class="material-symbols-outlined">cancel</span> Siloed frameworks</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> Unified intelligence layer</td>
+                            <td data-label="Others:" class="cross"><span class="material-symbols-outlined">cancel</span> Siloed frameworks</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>FAIR Risk Quantification</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> Financial impact (SLE × ARO)</td>
-                            <td class="partial"><span class="material-symbols-outlined">warning</span> Enterprise-only</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> Financial impact (SLE × ARO)</td>
+                            <td data-label="Others:" class="partial"><span class="material-symbols-outlined">warning</span> Enterprise-only</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Continuous Monitoring</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> Built-in</td>
-                            <td class="partial"><span class="material-symbols-outlined">warning</span> Requires integrations</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> Built-in</td>
+                            <td data-label="Others:" class="partial"><span class="material-symbols-outlined">warning</span> Requires integrations</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Custom Reports</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> No-code builder</td>
-                            <td class="partial"><span class="material-symbols-outlined">warning</span> Fixed templates</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> No-code builder</td>
+                            <td data-label="Others:" class="partial"><span class="material-symbols-outlined">warning</span> Fixed templates</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Hierarchical Taxonomy</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> Multi-level</td>
-                            <td class="cross"><span class="material-symbols-outlined">cancel</span> Flat domains</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> Multi-level</td>
+                            <td data-label="Others:" class="cross"><span class="material-symbols-outlined">cancel</span> Flat domains</td>
                         </tr>
-                        <tr data-aos="fade-up">
+                        <tr>
                             <td><strong>Modern Stack</strong></td>
-                            <td class="check"><span class="material-symbols-outlined">check_circle</span> React 19, MUI 6, TS</td>
-                            <td class="partial"><span class="material-symbols-outlined">warning</span> Legacy frameworks</td>
+                            <td data-label="TrustMaven:" class="check"><span class="material-symbols-outlined">check_circle</span> React 19, MUI 6, TS</td>
+                            <td data-label="Others:" class="partial"><span class="material-symbols-outlined">warning</span> Legacy frameworks</td>
                         </tr>
                     </tbody>
                 </table>
@@ -627,7 +696,7 @@
             <h2 class="section-title">What's Next</h2>
 
             <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-item">
                     <div class="timeline-marker">
                         <span class="material-symbols-outlined">flag</span>
                     </div>
@@ -642,7 +711,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-item">
                     <div class="timeline-marker">
                         <span class="material-symbols-outlined">psychology</span>
                     </div>
@@ -667,21 +736,21 @@
             <h2 class="section-title">Ready to Transform Your GRC Program?</h2>
 
             <div class="cta-grid">
-                <div class="cta-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="cta-card">
                     <span class="material-symbols-outlined cta-icon">rocket_launch</span>
                     <h3>Try Demo</h3>
                     <p>Explore full-featured sandbox</p>
                     <a href="#demo" class="btn btn-primary">Launch Demo</a>
                 </div>
 
-                <div class="cta-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="cta-card">
                     <span class="material-symbols-outlined cta-icon">calendar_month</span>
                     <h3>Schedule Demo</h3>
                     <p>Book 30-min walkthrough</p>
                     <a href="mailto:contact@trustmaven.io" class="btn btn-secondary">Contact Us</a>
                 </div>
 
-                <div class="cta-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="cta-card">
                     <span class="material-symbols-outlined cta-icon">code</span>
                     <h3>View GitHub</h3>
                     <p>Open source, community-driven</p>
@@ -700,27 +769,28 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#docs">Documentation</a></li>
+                        <li><a href="#comparison">Comparison</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven" target="_blank">Documentation</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#hero">About</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven/issues" target="_blank">Support</a></li>
                         <li><a href="mailto:contact@trustmaven.io">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Legal</h4>
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#security">Security</a></li>
+                        <li><a href="#technology">Technology Stack</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven" target="_blank">Open Source</a></li>
+                        <li><a href="#solution">Governance OS</a></li>
+                        <li><a href="#features">Feature Overview</a></li>
                     </ul>
                 </div>
 
@@ -728,8 +798,8 @@
                     <h4>Connect</h4>
                     <ul>
                         <li><a href="https://github.com/CiviTech-Global/trust-maven" target="_blank">GitHub</a></li>
-                        <li><a href="#twitter">Twitter</a></li>
-                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven/discussions" target="_blank">Discussions</a></li>
+                        <li><a href="https://github.com/CiviTech-Global/trust-maven/issues" target="_blank">Issues</a></li>
                         <li><a href="mailto:contact@trustmaven.io">Email</a></li>
                     </ul>
                 </div>
@@ -743,15 +813,12 @@
 
     <!-- Scripts -->
     <!-- GSAP -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-7+gQ4Y9Qqh3fQdcKmZLZKmUqmGqGqkr7WLKkR0PqGqmKqKqGqkr7WLKkR0PqGq" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
     <!-- Lottie -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" defer></script>
 
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <!-- Custom Scripts -->
     <script src="assets/js/main.js" defer></script>

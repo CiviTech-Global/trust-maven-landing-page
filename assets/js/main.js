@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initLazyLoading();
-    initAOS();
     removePreload();
 });
 
@@ -40,15 +39,15 @@ function initNavbar() {
  */
 function initMobileMenu() {
     const toggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.querySelector('.nav-links');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    if (toggle && navLinks) {
+    if (toggle && mobileMenu) {
         toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
 
             // Update icon
             const icon = toggle.querySelector('.material-symbols-outlined');
-            if (navLinks.classList.contains('active')) {
+            if (mobileMenu.classList.contains('active')) {
                 icon.textContent = 'close';
             } else {
                 icon.textContent = 'menu';
@@ -56,10 +55,10 @@ function initMobileMenu() {
         });
 
         // Close menu when clicking a link
-        const links = navLinks.querySelectorAll('a');
+        const links = mobileMenu.querySelectorAll('.mobile-link');
         links.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
                 const icon = toggle.querySelector('.material-symbols-outlined');
                 icon.textContent = 'menu';
             });
@@ -67,8 +66,8 @@ function initMobileMenu() {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
+            if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
                 const icon = toggle.querySelector('.material-symbols-outlined');
                 icon.textContent = 'menu';
             }
@@ -110,42 +109,12 @@ function initSmoothScroll() {
 }
 
 /**
- * Lazy loading for images
+ * Lazy loading handled by native loading="lazy" attribute.
+ * No custom JS needed — images use src directly.
  */
 function initLazyLoading() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        images.forEach(img => img.classList.add('loaded'));
-    }
-}
-
-/**
- * Initialize AOS (Animate On Scroll)
- */
-function initAOS() {
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            offset: 100,
-            delay: 0,
-        });
-    }
+    // Native loading="lazy" handles everything.
+    // This function kept for compatibility with the init call.
 }
 
 /**
@@ -225,11 +194,11 @@ document.querySelectorAll('a[target="_blank"]').forEach(link => {
 document.addEventListener('keydown', (e) => {
     // Escape key closes mobile menu
     if (e.key === 'Escape') {
-        const navLinks = document.querySelector('.nav-links');
+        const mobileMenu = document.getElementById('mobileMenu');
         const toggle = document.getElementById('mobileMenuToggle');
 
-        if (navLinks && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
             if (toggle) {
                 const icon = toggle.querySelector('.material-symbols-outlined');
                 icon.textContent = 'menu';

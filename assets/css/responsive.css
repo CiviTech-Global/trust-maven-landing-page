@@ -2,7 +2,7 @@
    Responsive Styles - Mobile First
    ======================================== */
 
-/* Tablet - 768px and below */
+/* Tablet and below - 768px */
 @media (max-width: 768px) {
     /* Typography Adjustments */
     h1 {
@@ -20,19 +20,6 @@
     /* Navigation */
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: white;
-        flex-direction: column;
-        padding: var(--spacing-md);
-        border-top: 1px solid var(--border-light);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .nav-links.active {
-        display: flex;
     }
 
     .mobile-menu-toggle {
@@ -61,14 +48,30 @@
     .hero-cta .btn {
         width: 100%;
         text-align: center;
+        justify-content: center;
     }
 
     .screenshot-showcase {
-        height: 400px;
+        height: auto;
     }
 
     .screenshot-float {
-        display: none; /* Hide floating screenshots on mobile */
+        display: none;
+    }
+
+    /* Hero Stats (below screenshot) */
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .stat-item {
+        min-width: 80px;
+        padding: var(--spacing-sm);
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
     }
 
     /* Hero Metrics */
@@ -114,6 +117,10 @@
     }
 
     /* Feature Blocks */
+    .feature-block {
+        margin-bottom: var(--spacing-2xl);
+    }
+
     .feature-block.layout-right,
     .feature-block.layout-left {
         grid-template-columns: 1fr;
@@ -128,6 +135,11 @@
         order: 2;
     }
 
+    .feature-image img {
+        width: 100%;
+        height: auto;
+    }
+
     .governance-stats {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
@@ -135,7 +147,7 @@
 
     /* Tech Grid */
     .tech-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
     }
 
@@ -188,7 +200,12 @@
         padding: 0 var(--spacing-md);
     }
 
-    /* Annotations */
+    /* Annotations - make visible without absolute positioning on mobile */
+    .annotation {
+        position: static;
+        opacity: 1;
+    }
+
     .annotation-1,
     .annotation-2,
     .annotation-3 {
@@ -196,10 +213,82 @@
         margin: var(--spacing-md) 0;
         opacity: 1;
     }
+
+    /* Solution screenshot */
+    .screenshot-full {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Medium Mobile - 512px and below */
+@media (max-width: 512px) {
+    /* Hero container gap reduction */
+    .hero-container {
+        gap: var(--spacing-md);  /* 24px instead of 48px */
+    }
+
+    /* Hero metrics: keep 2 columns but reduce sizes */
+    .hero-metrics {
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm);
+    }
+
+    .metric-value {
+        font-size: 1.375rem;
+    }
+
+    .metric-label {
+        font-size: 0.7rem;
+    }
+
+    /* Solution stats: reduce to 2 columns */
+    .solution-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+
+    .solution-stat .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .solution-stat .stat-text {
+        font-size: 0.8125rem;
+    }
+
+    /* Feature content: reduce padding */
+    .feature-content {
+        padding: var(--spacing-sm);
+    }
+
+    /* Callout box improvements */
+    .callout-box {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .callout-box .material-symbols-outlined {
+        font-size: 1.75rem;
+    }
+
+    .callout-box strong {
+        font-size: 1.125rem;
+    }
+
+    /* Section padding reduction */
+    section {
+        padding: var(--spacing-xl) 0;
+    }
 }
 
 /* Mobile - 640px and below */
 @media (max-width: 640px) {
+    /* Hero container gap */
+    .hero-container {
+        gap: var(--spacing-lg);
+    }
+
     /* Typography */
     h1 {
         font-size: 2rem;
@@ -239,7 +328,7 @@
     }
 
     .screenshot-showcase {
-        height: 300px;
+        height: auto;
     }
 
     /* Hero */
@@ -274,7 +363,7 @@
 
     /* Solution Stats */
     .solution-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-sm);
     }
 
@@ -300,14 +389,58 @@
         font-size: 2rem;
     }
 
-    /* Comparison Table */
+    /* Tech Grid - single column on small screens */
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Comparison Table - Card Layout for Mobile */
     .comparison-table-wrapper {
-        overflow-x: auto;
+        overflow: visible;
     }
 
     .comparison-table {
-        min-width: 600px;
         font-size: 0.8125rem;
+    }
+
+    .comparison-table thead {
+        display: none;
+    }
+
+    .comparison-table tbody tr {
+        display: block;
+        margin-bottom: var(--spacing-lg);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-md);
+        background-color: var(--surface-light);
+    }
+
+    .comparison-table td {
+        display: block;
+        text-align: left;
+        padding: var(--spacing-sm) 0;
+        border: none;
+    }
+
+    .comparison-table td:first-child {
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-xs);
+        padding-bottom: var(--spacing-xs);
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .comparison-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: inline-block;
+        margin-right: 8px;
+        color: var(--text-primary);
+    }
+
+    .comparison-table td:first-child::before {
+        content: none;
     }
 
     /* Timeline */
@@ -330,6 +463,13 @@
     /* Spacing */
     section {
         padding: var(--spacing-xl) 0;
+    }
+
+    /* Feature images */
+    .feature-image img,
+    .feature-image-wide img {
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -354,6 +494,12 @@
     .navbar .container {
         padding-left: var(--spacing-sm);
         padding-right: var(--spacing-sm);
+    }
+
+    /* Hero metrics collapse to single column */
+    .hero-metrics {
+        grid-template-columns: 1fr;  /* Single column stack */
+        gap: var(--spacing-xs);
     }
 
     .governance-os {
